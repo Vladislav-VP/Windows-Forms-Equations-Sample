@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.lbA = new System.Windows.Forms.Label();
             this.lbB = new System.Windows.Forms.Label();
@@ -41,7 +41,7 @@
             this.lbInput = new System.Windows.Forms.Label();
             this.lbOutput = new System.Windows.Forms.Label();
             this.listBResult = new System.Windows.Forms.ListBox();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chGraphic = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.btEvaluate = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -50,10 +50,11 @@
             this.lbAccuracy = new System.Windows.Forms.Label();
             this.nudAccuracy = new System.Windows.Forms.NumericUpDown();
             this.btWriteToTable = new System.Windows.Forms.Button();
+            this.btPlot = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudA)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDelta)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chGraphic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudAccuracy)).BeginInit();
@@ -162,21 +163,22 @@
             this.listBResult.Size = new System.Drawing.Size(202, 204);
             this.listBResult.TabIndex = 8;
             // 
-            // chart1
+            // chGraphic
             // 
-            chartArea3.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chart1.Legends.Add(legend3);
-            this.chart1.Location = new System.Drawing.Point(499, 107);
-            this.chart1.Name = "chart1";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.chart1.Series.Add(series3);
-            this.chart1.Size = new System.Drawing.Size(293, 204);
-            this.chart1.TabIndex = 9;
-            this.chart1.Text = "chart1";
+            chartArea1.Name = "ChartArea1";
+            this.chGraphic.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chGraphic.Legends.Add(legend1);
+            this.chGraphic.Location = new System.Drawing.Point(499, 107);
+            this.chGraphic.Name = "chGraphic";
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chGraphic.Series.Add(series1);
+            this.chGraphic.Size = new System.Drawing.Size(293, 204);
+            this.chGraphic.TabIndex = 9;
+            this.chGraphic.Text = "chart1";
             // 
             // btEvaluate
             // 
@@ -267,11 +269,22 @@
             this.btWriteToTable.UseVisualStyleBackColor = true;
             this.btWriteToTable.Click += new System.EventHandler(this.btWriteToTable_Click);
             // 
+            // btPlot
+            // 
+            this.btPlot.Location = new System.Drawing.Point(594, 401);
+            this.btPlot.Name = "btPlot";
+            this.btPlot.Size = new System.Drawing.Size(197, 36);
+            this.btPlot.TabIndex = 17;
+            this.btPlot.Text = "Plot";
+            this.btPlot.UseVisualStyleBackColor = true;
+            this.btPlot.Click += new System.EventHandler(this.btPlot_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(804, 431);
+            this.ClientSize = new System.Drawing.Size(804, 455);
+            this.Controls.Add(this.btPlot);
             this.Controls.Add(this.btWriteToTable);
             this.Controls.Add(this.nudAccuracy);
             this.Controls.Add(this.lbAccuracy);
@@ -279,7 +292,7 @@
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btEvaluate);
-            this.Controls.Add(this.chart1);
+            this.Controls.Add(this.chGraphic);
             this.Controls.Add(this.listBResult);
             this.Controls.Add(this.lbOutput);
             this.Controls.Add(this.lbInput);
@@ -297,7 +310,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudA)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDelta)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chGraphic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
@@ -318,7 +331,7 @@
         private System.Windows.Forms.Label lbInput;
         private System.Windows.Forms.Label lbOutput;
         private System.Windows.Forms.ListBox listBResult;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chGraphic;
         private System.Windows.Forms.Button btEvaluate;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStrip toolStrip1;
@@ -327,6 +340,7 @@
         private System.Windows.Forms.Label lbAccuracy;
         private System.Windows.Forms.NumericUpDown nudAccuracy;
         private System.Windows.Forms.Button btWriteToTable;
+        private System.Windows.Forms.Button btPlot;
     }
 }
 

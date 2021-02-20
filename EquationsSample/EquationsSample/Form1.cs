@@ -35,6 +35,17 @@ namespace EquationsSample
             WriteIntoTable();
         }
 
+        private void btPlot_Click(object sender, EventArgs e)
+        {
+            ReadTableDataInput();
+            if (!_isInputValid)
+            {
+                return;
+            }
+
+            PlotGraphic();
+        }
+
         private void ReadEquationDataInput()
         {
             _isInputValid = false;
@@ -91,6 +102,17 @@ namespace EquationsSample
             {
                 double y = _equation.GetValueForCurrentX();
                 listBResult.Items.Add($"{_equation.CurrentX} {y}");
+                _equation.CurrentX += _equation.DeltaX;
+            }
+        }
+
+        private void PlotGraphic()
+        {
+            _equation.CurrentX = _equation.MinValue;
+            while (_equation.CurrentX <= _equation.MaxValue)
+            {
+                double y = _equation.GetValueForCurrentX();
+                chGraphic.Series[0].Points.AddXY(_equation.CurrentX, y);
                 _equation.CurrentX += _equation.DeltaX;
             }
         }
