@@ -46,18 +46,22 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.сохранитьToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.lbResult = new System.Windows.Forms.Label();
+            this.lbAccuracy = new System.Windows.Forms.Label();
+            this.nudAccuracy = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.nudA)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDelta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudAccuracy)).BeginInit();
             this.SuspendLayout();
             // 
             // lbA
             // 
             this.lbA.AutoSize = true;
-            this.lbA.Location = new System.Drawing.Point(12, 80);
+            this.lbA.Location = new System.Drawing.Point(15, 109);
             this.lbA.Name = "lbA";
             this.lbA.Size = new System.Drawing.Size(20, 20);
             this.lbA.TabIndex = 0;
@@ -66,7 +70,7 @@
             // lbB
             // 
             this.lbB.AutoSize = true;
-            this.lbB.Location = new System.Drawing.Point(12, 112);
+            this.lbB.Location = new System.Drawing.Point(15, 141);
             this.lbB.Name = "lbB";
             this.lbB.Size = new System.Drawing.Size(20, 20);
             this.lbB.TabIndex = 1;
@@ -80,7 +84,7 @@
             0,
             0,
             65536});
-            this.nudA.Location = new System.Drawing.Point(90, 78);
+            this.nudA.Location = new System.Drawing.Point(132, 107);
             this.nudA.Minimum = new decimal(new int[] {
             100,
             0,
@@ -98,7 +102,7 @@
             0,
             0,
             65536});
-            this.nudB.Location = new System.Drawing.Point(90, 110);
+            this.nudB.Location = new System.Drawing.Point(132, 139);
             this.nudB.Minimum = new decimal(new int[] {
             100,
             0,
@@ -116,7 +120,7 @@
             0,
             0,
             65536});
-            this.nudDelta.Location = new System.Drawing.Point(90, 142);
+            this.nudDelta.Location = new System.Drawing.Point(132, 171);
             this.nudDelta.Name = "nudDelta";
             this.nudDelta.Size = new System.Drawing.Size(69, 26);
             this.nudDelta.TabIndex = 4;
@@ -124,7 +128,7 @@
             // lbDelta
             // 
             this.lbDelta.AutoSize = true;
-            this.lbDelta.Location = new System.Drawing.Point(12, 144);
+            this.lbDelta.Location = new System.Drawing.Point(15, 173);
             this.lbDelta.Name = "lbDelta";
             this.lbDelta.Size = new System.Drawing.Size(62, 20);
             this.lbDelta.TabIndex = 5;
@@ -152,7 +156,7 @@
             // 
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 20;
-            this.listBox1.Location = new System.Drawing.Point(239, 78);
+            this.listBox1.Location = new System.Drawing.Point(291, 107);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(202, 204);
             this.listBox1.TabIndex = 8;
@@ -163,7 +167,7 @@
             this.chart1.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
             this.chart1.Legends.Add(legend2);
-            this.chart1.Location = new System.Drawing.Point(499, 78);
+            this.chart1.Location = new System.Drawing.Point(499, 107);
             this.chart1.Name = "chart1";
             series2.ChartArea = "ChartArea1";
             series2.Legend = "Legend1";
@@ -210,11 +214,55 @@
             this.сохранитьToolStripButton.Size = new System.Drawing.Size(23, 22);
             this.сохранитьToolStripButton.Text = "&Сохранить";
             // 
+            // lbResult
+            // 
+            this.lbResult.AutoSize = true;
+            this.lbResult.Location = new System.Drawing.Point(466, 66);
+            this.lbResult.Name = "lbResult";
+            this.lbResult.Size = new System.Drawing.Size(37, 20);
+            this.lbResult.TabIndex = 13;
+            this.lbResult.Text = "X = ";
+            // 
+            // lbAccuracy
+            // 
+            this.lbAccuracy.AutoSize = true;
+            this.lbAccuracy.Location = new System.Drawing.Point(15, 205);
+            this.lbAccuracy.Name = "lbAccuracy";
+            this.lbAccuracy.Size = new System.Drawing.Size(74, 20);
+            this.lbAccuracy.TabIndex = 14;
+            this.lbAccuracy.Text = "Accuracy";
+            // 
+            // nudAccuracy
+            // 
+            this.nudAccuracy.DecimalPlaces = 3;
+            this.nudAccuracy.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            196608});
+            this.nudAccuracy.Location = new System.Drawing.Point(132, 203);
+            this.nudAccuracy.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            196608});
+            this.nudAccuracy.Name = "nudAccuracy";
+            this.nudAccuracy.Size = new System.Drawing.Size(69, 26);
+            this.nudAccuracy.TabIndex = 15;
+            this.nudAccuracy.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            196608});
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(804, 431);
+            this.Controls.Add(this.nudAccuracy);
+            this.Controls.Add(this.lbAccuracy);
+            this.Controls.Add(this.lbResult);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btEvaluate);
@@ -240,6 +288,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudAccuracy)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -261,6 +310,9 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton сохранитьToolStripButton;
+        private System.Windows.Forms.Label lbResult;
+        private System.Windows.Forms.Label lbAccuracy;
+        private System.Windows.Forms.NumericUpDown nudAccuracy;
     }
 }
 
