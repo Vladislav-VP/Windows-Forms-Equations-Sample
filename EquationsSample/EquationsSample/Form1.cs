@@ -24,6 +24,17 @@ namespace EquationsSample
             }            
         }
 
+        private void btWriteToTable_Click(object sender, EventArgs e)
+        {
+            ReadTableDataInput();
+            if (!_isInputValid)
+            {
+                return;
+            }
+
+            WriteIntoTable();
+        }
+
         private void ReadEquationDataInput()
         {
             _isInputValid = false;
@@ -39,12 +50,49 @@ namespace EquationsSample
             }
 
             _isInputValid = true;
-            _equation = new Equation((double)nudA.Value, (double)nudB.Value, (double)nudAccuracy.Value);
+            _equation = new Equation(a, b, accuracy);
         }
 
         private void OutputSolution()
         {
             lbResult.Text = $"X = {_equation.GetSolution()}";
+        }
+
+        private void ReadTableDataInput()
+        {
+            _isInputValid = false;
+
+            double a = (double)nudA.Value;
+            double b = (double)nudB.Value;
+            double deltaX = (double)nudDelta.Value;
+
+            if (a >= b)
+            {
+                MessageBox.Show("A can not be greater or equal B", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (deltaX == 0)
+            {
+                MessageBox.Show("Delta X can not be 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            _isInputValid = true;
+            _equation = new Equation(a, b);
+            _equation.DeltaX = deltaX;
+        }
+
+        private void WriteIntoTable()
+        {
+            listBResult.Items.Clear();
+            _equation.CurrentX = _equation.MinValue;
+            listBResult.Items.Add("X Y");
+            while (_equation.CurrentX <= _equation.MaxValue)
+            {
+                double y = _equation.GetValueForCurrentX();
+                listBResult.Items.Add($"{_equation.CurrentX} {y}");
+                _equation.CurrentX += _equation.DeltaX;
+            }
         }
     }
 }

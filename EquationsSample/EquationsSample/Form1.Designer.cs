@@ -40,7 +40,7 @@
             this.lbDelta = new System.Windows.Forms.Label();
             this.lbInput = new System.Windows.Forms.Label();
             this.lbOutput = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.listBResult = new System.Windows.Forms.ListBox();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.btEvaluate = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -49,6 +49,7 @@
             this.lbResult = new System.Windows.Forms.Label();
             this.lbAccuracy = new System.Windows.Forms.Label();
             this.nudAccuracy = new System.Windows.Forms.NumericUpDown();
+            this.btWriteToTable = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudA)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDelta)).BeginInit();
@@ -152,14 +153,14 @@
             this.lbOutput.TabIndex = 7;
             this.lbOutput.Text = "Output";
             // 
-            // listBox1
+            // listBResult
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 20;
-            this.listBox1.Location = new System.Drawing.Point(291, 107);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(202, 204);
-            this.listBox1.TabIndex = 8;
+            this.listBResult.FormattingEnabled = true;
+            this.listBResult.ItemHeight = 20;
+            this.listBResult.Location = new System.Drawing.Point(291, 107);
+            this.listBResult.Name = "listBResult";
+            this.listBResult.Size = new System.Drawing.Size(202, 204);
+            this.listBResult.TabIndex = 8;
             // 
             // chart1
             // 
@@ -179,11 +180,11 @@
             // 
             // btEvaluate
             // 
-            this.btEvaluate.Location = new System.Drawing.Point(646, 317);
+            this.btEvaluate.Location = new System.Drawing.Point(594, 317);
             this.btEvaluate.Name = "btEvaluate";
-            this.btEvaluate.Size = new System.Drawing.Size(146, 102);
+            this.btEvaluate.Size = new System.Drawing.Size(198, 36);
             this.btEvaluate.TabIndex = 10;
-            this.btEvaluate.Text = "Evaluate";
+            this.btEvaluate.Text = "Solve";
             this.btEvaluate.UseVisualStyleBackColor = true;
             this.btEvaluate.Click += new System.EventHandler(this.btEvaluate_Click);
             // 
@@ -256,11 +257,22 @@
             0,
             196608});
             // 
+            // btWriteToTable
+            // 
+            this.btWriteToTable.Location = new System.Drawing.Point(594, 359);
+            this.btWriteToTable.Name = "btWriteToTable";
+            this.btWriteToTable.Size = new System.Drawing.Size(197, 36);
+            this.btWriteToTable.TabIndex = 16;
+            this.btWriteToTable.Text = "Write to table";
+            this.btWriteToTable.UseVisualStyleBackColor = true;
+            this.btWriteToTable.Click += new System.EventHandler(this.btWriteToTable_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(804, 431);
+            this.Controls.Add(this.btWriteToTable);
             this.Controls.Add(this.nudAccuracy);
             this.Controls.Add(this.lbAccuracy);
             this.Controls.Add(this.lbResult);
@@ -268,7 +280,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btEvaluate);
             this.Controls.Add(this.chart1);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.listBResult);
             this.Controls.Add(this.lbOutput);
             this.Controls.Add(this.lbInput);
             this.Controls.Add(this.lbDelta);
@@ -305,7 +317,7 @@
         private System.Windows.Forms.Label lbDelta;
         private System.Windows.Forms.Label lbInput;
         private System.Windows.Forms.Label lbOutput;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox listBResult;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.Button btEvaluate;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -314,6 +326,7 @@
         private System.Windows.Forms.Label lbResult;
         private System.Windows.Forms.Label lbAccuracy;
         private System.Windows.Forms.NumericUpDown nudAccuracy;
+        private System.Windows.Forms.Button btWriteToTable;
     }
 }
 

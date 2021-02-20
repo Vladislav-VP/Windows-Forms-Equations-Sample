@@ -11,7 +11,17 @@ namespace EquationsSample
 
         private double _solution;
 
+        public double MinValue => _minValue;
+        public double MaxValue => _maxValue;
+
         public double CurrentX { get; set; }
+        public double DeltaX { get; set; }
+
+        public Equation(double minValue, double maxValue)
+        {
+            _minValue = minValue;
+            _maxValue = maxValue;
+        }
 
         public Equation(double minValue, double maxValue, double accuracy)
         {
