@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.lbA = new System.Windows.Forms.Label();
             this.lbB = new System.Windows.Forms.Label();
@@ -45,12 +45,13 @@
             this.btEvaluate = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.сохранитьToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.btSave = new System.Windows.Forms.ToolStripButton();
             this.lbResult = new System.Windows.Forms.Label();
             this.lbAccuracy = new System.Windows.Forms.Label();
             this.nudAccuracy = new System.Windows.Forms.NumericUpDown();
             this.btWriteToTable = new System.Windows.Forms.Button();
             this.btPlot = new System.Windows.Forms.Button();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.nudA)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDelta)).BeginInit();
@@ -165,17 +166,17 @@
             // 
             // chGraphic
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chGraphic.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chGraphic.Legends.Add(legend1);
+            chartArea4.Name = "ChartArea1";
+            this.chGraphic.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.chGraphic.Legends.Add(legend4);
             this.chGraphic.Location = new System.Drawing.Point(499, 107);
             this.chGraphic.Name = "chGraphic";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chGraphic.Series.Add(series1);
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            this.chGraphic.Series.Add(series4);
             this.chGraphic.Size = new System.Drawing.Size(293, 204);
             this.chGraphic.TabIndex = 9;
             this.chGraphic.Text = "chart1";
@@ -202,21 +203,22 @@
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.сохранитьToolStripButton});
+            this.btSave});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(804, 25);
             this.toolStrip1.TabIndex = 12;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // сохранитьToolStripButton
+            // btSave
             // 
-            this.сохранитьToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.сохранитьToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("сохранитьToolStripButton.Image")));
-            this.сохранитьToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.сохранитьToolStripButton.Name = "сохранитьToolStripButton";
-            this.сохранитьToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.сохранитьToolStripButton.Text = "&Сохранить";
+            this.btSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btSave.Image = ((System.Drawing.Image)(resources.GetObject("btSave.Image")));
+            this.btSave.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btSave.Name = "btSave";
+            this.btSave.Size = new System.Drawing.Size(23, 22);
+            this.btSave.Text = "&Сохранить";
+            this.btSave.Click += new System.EventHandler(this.btSave_Click);
             // 
             // lbResult
             // 
@@ -335,12 +337,13 @@
         private System.Windows.Forms.Button btEvaluate;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton сохранитьToolStripButton;
+        private System.Windows.Forms.ToolStripButton btSave;
         private System.Windows.Forms.Label lbResult;
         private System.Windows.Forms.Label lbAccuracy;
         private System.Windows.Forms.NumericUpDown nudAccuracy;
         private System.Windows.Forms.Button btWriteToTable;
         private System.Windows.Forms.Button btPlot;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
 

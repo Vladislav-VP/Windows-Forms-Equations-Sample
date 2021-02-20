@@ -46,6 +46,11 @@ namespace EquationsSample
             PlotGraphic();
         }
 
+        private void btSave_Click(object sender, EventArgs e)
+        {
+            SaveToFile();
+        }
+
         private void ReadEquationDataInput()
         {
             _isInputValid = false;
@@ -115,6 +120,29 @@ namespace EquationsSample
                 chGraphic.Series[0].Points.AddXY(_equation.CurrentX, y);
                 _equation.CurrentX += _equation.DeltaX;
             }
+        }
+
+        private void SaveToFile()
+        {
+            if (listBResult.Items.Count == 0)
+            {
+                MessageBox.Show("Data is Empty", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (saveFileDialog1.ShowDialog() == DialogResult.Cancel)
+            {
+                return;
+            }
+                
+            string filename = saveFileDialog1.FileName;
+
+            for (int i = 0; i < listBResult.Items.Count; i++)
+            {
+                System.IO.File.AppendAllText(filename, listBResult.Items[i].ToString());
+            }
+
+            MessageBox.Show($"File saved: {filename}");
         }
     }
 }
