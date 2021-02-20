@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EquationsSample
 {
@@ -45,7 +41,21 @@ namespace EquationsSample
 
         private void Solve()
         {
-            throw new NotImplementedException();
+            double leftedge = _minValue;
+            double rightEdge = _maxValue;
+            double middle = (leftedge + rightEdge) / 2;
+            double length = rightEdge - leftedge;
+
+            while (length > 2 * _accuracy)
+            {
+                leftedge = GetFunctionValue(leftedge) * GetFunctionValue(middle) > 0 ? middle : leftedge;
+                rightEdge = GetFunctionValue(rightEdge) * GetFunctionValue(middle) > 0 ? middle : rightEdge;
+
+                middle = (leftedge + rightEdge) / 2;
+                length = rightEdge - leftedge;
+            }
+
+            _solution = middle;
         }
     }
 }
